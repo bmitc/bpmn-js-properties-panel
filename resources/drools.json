@@ -1,0 +1,43 @@
+{
+  "name": "Soupe Workflow BPMN Extension Model for Drools",
+  "uri": "http://www.jboss.org/drools",
+  "prefix": "drools",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "global",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "identifier",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "type",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "import",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "name",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    }
+  ]
+}
+

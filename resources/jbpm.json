@@ -1,0 +1,323 @@
+{
+  "name": "Soupe Workflow BPMN Extension Model for jBPM",
+  "uri": "http://www.jboss.org/jbpm",
+  "prefix": "jbpm",
+  "xml": {
+    "tagAlias": "lowerCase"
+  },
+  "associations": [],
+  "types": [
+    {
+      "name": "Initiator",
+      "isAbstract": true,
+      "extends": [ "bpmn:StartEvent" ],
+      "properties": [
+        {
+          "name": "initiator",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "ScriptTask",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:ScriptTask"
+      ],
+      "properties": [
+        {
+          "name": "resultVariable",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "resource",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Process",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:Process"
+      ],
+      "properties": [
+        {
+          "name": "toDoUrl",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "FormalExpression",
+      "isAbstract": true,
+      "extends": [
+        "bpmn:FormalExpression"
+      ],
+      "properties": [
+        {
+          "name": "resource",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "UserTask",
+      "extends": [ "bpmn:UserTask" ],
+      "properties": [
+        {
+          "name": "RoleCodes",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "OrganizationLevel",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "Multi-User",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "ActorId",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "Skippable",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "Priority",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "toDoUrl",
+          "isAttr": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "CallActivity",
+      "extends": [ "bpmn:CallActivity" ],
+      "properties": [
+        {
+          "name": "calledElementBinding",
+          "isAttr": true,
+          "type": "String",
+          "default": "latest"
+        },
+        {
+          "name": "calledElementVersion",
+          "isAttr": true,
+          "type": "Integer"
+        },
+        {
+          "name": "caseRef",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "caseBinding",
+          "isAttr": true,
+          "type": "String",
+          "default": "latest"
+        },
+        {
+          "name": "caseVersion",
+          "isAttr": true,
+          "type": "Integer"
+        }
+      ]
+    },
+    {
+      "name": "Properties",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "values",
+          "type": "Property",
+          "isMany": true
+        }
+      ]
+    },
+    {
+      "name": "Property",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "name",
+          "type": "String",
+          "isAttr": true
+        },
+        {
+          "name": "value",
+          "type": "String",
+          "isAttr": true
+        }
+      ]
+    },
+    {
+      "name": "InputOutput",
+      "superClass": [
+        "Element"
+      ],
+      "properties": [
+        {
+          "name": "inputOutput",
+          "type": "InputOutput"
+        },
+        {
+          "name": "connectorId",
+          "type": "String"
+        },
+        {
+          "name": "inputParameters",
+          "isMany": true,
+          "type": "InputParameter"
+        },
+        {
+          "name": "outputParameters",
+          "isMany": true,
+          "type": "OutputParameter"
+        }
+      ]
+    },
+    {
+      "name": "InputOutputParameter",
+      "properties": [
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "isBody": true,
+          "type": "String"
+        },
+        {
+          "name": "definition",
+          "type": "InputOutputParameterDefinition"
+        }
+      ]
+    },
+    {
+      "name": "InputOutputParameterDefinition",
+      "isAbstract": true
+    },
+    {
+      "name": "List",
+      "superClass": [ "InputOutputParameterDefinition" ],
+      "properties": [
+        {
+          "name": "items",
+          "isMany": true,
+          "type": "InputOutputParameterDefinition"
+        }
+      ]
+    },
+    {
+      "name": "Map",
+      "superClass": [ "InputOutputParameterDefinition" ],
+      "properties": [
+        {
+          "name": "entries",
+          "isMany": true,
+          "type": "Entry"
+        }
+      ]
+    },
+    {
+      "name": "Entry",
+      "properties": [
+        {
+          "name": "key",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "isBody": true,
+          "type": "String"
+        },
+        {
+          "name": "definition",
+          "type": "InputOutputParameterDefinition"
+        }
+      ]
+    },
+    {
+      "name": "Value",
+      "superClass": [
+        "InputOutputParameterDefinition"
+      ],
+      "properties": [
+        {
+          "name": "id",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "name",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "isBody": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "Script",
+      "superClass": [ "InputOutputParameterDefinition" ],
+      "properties": [
+        {
+          "name": "scriptFormat",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "resource",
+          "isAttr": true,
+          "type": "String"
+        },
+        {
+          "name": "value",
+          "isBody": true,
+          "type": "String"
+        }
+      ]
+    },
+    {
+      "name": "InputParameter",
+      "superClass": [ "InputOutputParameter" ]
+    },
+    {
+      "name": "OutputParameter",
+      "superClass": [ "InputOutputParameter" ]
+    }
+  ],
+  "emumerations": [ ]
+}
