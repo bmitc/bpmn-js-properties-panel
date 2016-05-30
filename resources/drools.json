@@ -2,9 +2,6 @@
   "name": "Soupe Workflow BPMN Extension Model for Drools",
   "uri": "http://www.jboss.org/drools",
   "prefix": "drools",
-  "xml": {
-    "tagAlias": "lowerCase"
-  },
   "associations": [],
   "types": [
     {
